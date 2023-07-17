@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGODB_URI).then(() => {
 app.set("view engine", "ejs"); //setting the view engine
 app.set("views", "views"); //setting the views folder
 app.use(express.static("public")); //setting the folder for the static files
-app.use(express.urlencoded()); //for form
+app.use(express.urlencoded({extended:false})); //for form
 app.use(cookieParser()); //for ease in setting the cookies
 app.use(methodOverride("_method")); //for using delete and others in form
 app.use(normalRoutes);
