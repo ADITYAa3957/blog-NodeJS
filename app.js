@@ -6,7 +6,7 @@ const methodOverride = require("method-override");
 const normalRoutes = require("./routes/routes");
 const adminRoutes = require("./routes/adminRoutes");
 require("dotenv").config();
-mongoose.connect('mongodb+srv://adityaagarwal:L2juDQ3z@mycluster.y6qjcf8.mongodb.net/MyDB?retryWrites=true&w=majority').then(() => {
+mongoose.connect(process.env.MONGO_URI).then(() => {
   // console.log("connected");
   let PORT = process.env.PORT_NO || 3000;
   app.listen(PORT); //will start listening
