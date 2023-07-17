@@ -11,6 +11,9 @@ mongoose.connect(process.env.MONGO_URI).then(() => {
   // console.log("connected");
   let PORT = process.env.PORT_NO || 3000;
   app.listen(PORT); //will start listening
+}).catch((err)=>
+{
+  console.log(err.message);
 });
 
 app.set("view engine", "ejs"); //setting the view engine
