@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nova+Cut&display=swap');
+*{
+    margin:0;
+}
+body
+{
+    font-family: 'Montserrat', sans-serif;
+    padding:2vh 8vw;
+    background-color:rgb(250, 240, 222);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+nav
+{
+    width:100%;
+    display: grid;
+    grid-template-rows:1fr;
+    grid-template-columns:1fr repeat(3,0.5fr) 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    height: 12vh;
+    border-radius:15px;
+}
+#logo
+{
+    color: black;
+    font-weight: bold;
+    font-family: 'Nova Cut', cursive;
+    font-size:1.5rem;
+}
+a
+{
+    color: black;
+    font-weight:bold;
+    text-decoration: none;
+}
+a:visited
+{
+    color: none;
+}
+.selected
+{
+    font-weight:normal;
+}
+.icon
+{
+    height:1rem;
+
+}
+.logout-btn
+{
+    cursor: pointer;
+    font-family: 'Nova Cut', cursive; 
+    border: none;
+    padding:0.5rem;
+
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    box-shadow:0 0 5px 1px rgb(182, 181, 181);
+}
+.logout-btn:hover
+{
+    transform: scale(1.05);
+}
+
+.form
+{
+    border-radius:5px;
+    box-shadow:0 0 5px 0.1px rgb(203, 202, 202);
+    background-color: white;
+    margin:2rem;
+    padding:6rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-item
+{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    margin:2rem 3rem; 
+}
+.form-item input
+{
+    border: none;
+    border-bottom: 1px solid wheat;
+}
+.form-item input:focus
+{
+    border-bottom: 1px solid rgb(246, 190, 87);
+    outline: none;
+}
+
+.heading-form
+{
+    font-size: 1.4rem;
+    margin-bottom:2vh;
+
+}
+.signBtn
+{
+    border-radius: 5px;
+    padding:0.5rem 1rem;
+    border: none;
+    background-color:white;
+    color:  rgb(246, 190, 87);
+    border:1px solid rgb(246, 190, 87);
+}
+.signBtn:hover
+{
+    transform: scale(1.1);
+    color: white;
+    background-color:  rgb(246, 190, 87);
+}
+.error-msg
+{
+    color: red;
+
+}
+
+.success-msg
+{
+    color:rgb(9, 218, 9);
+    text-align: center;
+    border:1px solid rgb(9, 218, 9);
+    width:100%;
+    margin-bottom:3rem;
+}
+
+.blog-item
+{
+    padding:0.5rem;
+    margin:1.5rem;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    height:5%;  
+    width:60%;
+    position: relative;
+
+}
+.blog-item:hover
+{
+    box-shadow:0 0 10px 1px rgb(218, 217, 217);
+    transform: scale(1.01);
+
+}
+form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.delete-btn
+{
+    position:absolute;
+    border:1px solid red;
+    background-color: transparent;
+    color: red;
+    right:0;
+}
+.delete-btn:hover
+{
+    background-color: red;
+    color: white;
+    transform: scale(1.1);
+
+}
+.edit-btn:hover
+{
+    background-color: blue;
+    color: white;
+    transform: scale(1.1);
+}
+.edit-btn
+{
+    border:1px solid blue;
+    background-color: transparent;
+    color: blue;
+    position:absolute;
+    right:10%;
+
+}
+.btns
+{
+    cursor: pointer;
+    border-radius:5px;
+    padding:0.3rem 1rem;
+
+
+}
+.edit-form
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* width:40vw;
+    height:40vh; */
+    /* background-color: red; */
+    width:50%;
+}
+.edit-item
+{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    /* margin:1rem; */
+    padding:1rem;
+}
+input,textarea:focus
+{
+    outline: none;
+
+}
+.save-btn
+{
+    width:5vw;
+    border: none;
+    padding:0.5rem;
+    background-color:rgb(5, 185, 5);
+    color: white;
+    border-radius:5px;
+    box-shadow:0 0 5px 1px rgb(182, 181, 181);
+}
+.save-btn:hover
+{
+   transform: scale(1.05);
+}
+.add-btn
+{
+    font-family: 'Nova Cut', cursive; 
+    cursor: pointer;
+    border-radius:5px;
+    border: none;
+    color: white;
+    background-color: gold;
+    padding:0.5rem;
+    margin:0.5rem;
+    font-weight: bold;
+    box-shadow:0 0 5px 1px rgb(182, 181, 181);
+
+}

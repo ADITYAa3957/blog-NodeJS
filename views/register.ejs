@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="dashboardStyles.css">
+</head>
+<body>
+    <nav>
+        <p id="logo">BestBlogs</p>
+        <a href="/dashboard" >Admin Panel</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/add-admin" class="selected">Add Admin</a>
+        <a href="/logout" class="logout-btn">Logout</a>
+      </nav>
+      <form action="/add-admin" method="post" class="form">
+        <% if(success) {%>
+        <p class="success-msg"><%= success%></p>
+        <% } %>
+        <h4 class="heading-form">Register</h4>
+        <div class="form-item">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required>
+             <% if(username) {%>
+            <p class="error-msg"><%= username  %></p>
+            <% } %>
+        </div>
+        <div class="form-item">
+            <label for="pass">Password:</label>
+            <input type="password" name="password" id="pass" required>
+            <% if(password) {%>
+                <p class="error-msg"><%= password  %></p>
+            <% } %>
+        </div>
+        <button type="submit" class="signBtn">Register</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="dashboardStyles.css">
+</head>
+<body>
+    <nav>
+        <p id="logo">BestBlogs</p>
+        <a href="/dashboard" class="selected">Admin Panel</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/add-admin">Add Admin</a>
+        <div class="btns-div">
+            <a href="/add-blog" class="add-btn">+Add Blog</a>
+            <a href="/logout" class="logout-btn">Logout</a>
+        </div>
+    </nav>
+    <%blogs.forEach(blog => {%>
+        <div class="blog-item">
+            <a class="selected"><%= blog.title %></a>
+            <form action="/edit/<%= blog._id %>" method="GET">
+                <button type="submit" class="btns edit-btn">Edit</button>
+            </form>
+            <form action="/delete/<%= blog._id %>?_method=DELETE" method="POST">
+                <button type="submit" class="btns delete-btn">Delete</button>
+            </form>
+        </div>
+    <%}); %>
+
+</body>
+</html>

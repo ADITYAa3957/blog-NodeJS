@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search results</title>
+    <link rel="stylesheet" href="/searchStyles.css" />
+  </head>
+  <body>
+    <%- include("partials/nav.ejs")  %>
+    <h1 class="blog" id="blog">Search Results</h1>
+    <% if(blogs.length>0){ %>
+    <%blogs.forEach(blog => {%>
+    <div class="blog-item">
+      <a href="/blog/<%= blog._id %>" class="selected"><%= blog.title %></a>
+      <p><%= blog.createdAt.toLocaleString()%></p>
+    </div>
+    <%}); %>
+    <% }else{ %>
+      <h1 class="no-results">No results...😔</h1>
+    <% } %>
+  </body>
+</html>

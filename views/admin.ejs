@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="adminStyles.css">
+</head>
+<body>
+    <%- include("partials/nav.ejs")  %>
+    <form action="/admin-login" method="post" class="form">
+        <h4 class="heading-form">Login to Continue</h4>
+        <div class="form-item">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required>
+             <% if(username) {%>
+            <p class="error-msg"><%= username  %></p>
+            <% } %>
+        </div>
+        <div class="form-item">
+            <label for="pass">Password:</label>
+            <input type="password" name="password" id="pass" required>
+            <% if(password) {%>
+                <p class="error-msg"><%= password  %></p>
+            <% } %>
+        </div>
+        <button type="submit" class="signBtn">Login</button>
+    </form>
+</body>
+</html>

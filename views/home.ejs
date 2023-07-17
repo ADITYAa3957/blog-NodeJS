@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BestBlogs.com</title>
+    <link rel="stylesheet" href="/homeStyles.css">
+
+</head>
+<body>
+    <%- include("partials/nav.ejs")  %>
+    <h1 class="welcome-msg">Welcome to BestBlogs.com</h1>
+    <p class="intro-msg">Best Blogging site! </p>
+    <img src="/blog2.jpg" alt="" class="home-img">
+    <h1 class="blog" id="blog">Latest Posts</h1>
+    <%blogs.forEach(blog => {%>
+        <div class="blog-item">
+            <a href="/blog/<%= blog._id %>" class="selected"><%= blog.title %></a>
+            <p><%= blog.createdAt.toLocaleString()%></p>
+        </div>
+    <%}); %>
+    <% if(morePages === true && blogs.length!==0){ %>
+    <a href="/?page=<%= Number(currPage)+1 %>">Older Posts...</a>
+    <%} %>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Blog</title>
+    <link rel="stylesheet" href="/dashboardStyles.css">
+</head>
+<body>
+    <nav>
+        <p id="logo">BestBlogs</p>
+        <a href="/dashboard" >Admin Panel</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/add-admin">Add Admin</a>
+        <a href="/logout" class="logout-btn">Logout</a>
+      </nav>
+    <form action="/add-blog" method="post" class="edit-form">
+        <div class="edit-item">
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title">
+        </div>
+        <div class="edit-item">
+            <label for="body">Body:</label>
+            <textarea name="body" id="body" cols="30" rows="20" ></textarea>
+        </div>
+        <button type="submit" class="save-btn">Add</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <% if(admin){ %>
+    <link rel="stylesheet" href="dashboardStyles.css">
+    <% } else{ %>
+    <link rel="stylesheet" href="/homeStyles.css">
+    <% }%>
+    <style>
+        .contact-msg
+        {
+            margin-top:40vh;
+            font-size:2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <% if(admin){ %>
+        <nav>
+            <p id="logo">BestBlogs</p>
+            <a href="/dashboard">Admin Panel</a>
+            <a href="/about" class="selected">About</a>
+            <a href="/contact">Contact</a>
+            <a href="/add-admin">Add Admin</a>
+            <a href="/logout" class="logout-btn">Logout</a>
+        </nav>
+    <% } else{%>
+        <%- include("partials/nav.ejs")  %>
+    <% } %>
+    <h3 class="contact-msg">Copyright &copy; <%= new Date().getFullYear()%> <br> Made by Aditya Agarwal </h3> 
+</body>
+</html>

@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Nova+Cut&display=swap');
+*{
+    margin:0;
+}
+body
+{
+    font-family: 'Montserrat', sans-serif;
+    padding:2vh 8vw;
+    background-color:rgb(250, 240, 222);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+nav
+{
+    width:100%;
+    display: grid;
+    grid-template-rows:1fr;
+    grid-template-columns:1fr repeat(3,0.5fr) 1fr;
+    justify-items: center;
+    align-items: center;
+    height: 12vh;
+    border-radius:15px;
+}
+#logo
+{
+    color: black;
+    font-weight: bold;
+    font-family: 'Nova Cut', cursive;
+    font-size:1.5rem;
+}
+a
+{
+    color: black;
+    font-weight:bold;
+    text-decoration: none;
+}
+a:visited
+{
+    color: none;
+}
+.selected
+{
+    font-weight:normal;
+}
+.icon
+{
+    height:1rem;
+
+}
+.search-btn
+{
+    justify-self:center;
+    box-shadow:0 0 10px 0.1px rgb(206, 204, 204);
+
+    font-family: 'Nova Cut', cursive;
+    border: none;
+    background-color:black ;
+    color: white;
+    padding:0.25rem;
+    border-radius:5px;
+}
+.search-btn:hover
+{
+    transform: scale(1.05);
+
+}
+input[type="search"]
+{
+    box-shadow:0 0 10px 2px rgb(218, 217, 217);
+    border: none;
+    border-radius: 5px;
+}
+input[type="search"]:focus
+{
+    outline: none;
+  
+}
+.form
+{
+    border-radius:5px;
+    box-shadow:0 0 5px 0.1px rgb(203, 202, 202);
+    background-color: white;
+    margin:2rem;
+    padding:6rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-item
+{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    margin:2rem 3rem; 
+}
+.form-item input
+{
+    border: none;
+    border-bottom: 1px solid wheat;
+}
+.form-item input:focus
+{
+    border-bottom: 1px solid rgb(246, 190, 87);
+    outline: none;
+}
+
+.heading-form
+{
+    font-size: 1.4rem;
+    margin-bottom:2vh;
+
+}
+.signBtn
+{
+    border-radius: 5px;
+    padding:0.5rem 1rem;
+    border: none;
+    background-color:white;
+    color:  rgb(246, 190, 87);
+    border:1px solid rgb(246, 190, 87);
+}
+.signBtn:hover
+{
+    transform: scale(1.1);
+    color: white;
+    background-color:  rgb(246, 190, 87);
+}
+.error-msg
+{
+    color: red;
+
+}
