@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const methodOverride = require("method-override");
 const normalRoutes = require("./routes/routes");
-const adminRoutes = require("./routes/adminRoutes");
 require("dotenv").config();
+const adminRoutes = require("./routes/adminRoutes");
 mongoose.connect(process.env.MONGO_URI).then(() => {
   // console.log("connected");
   let PORT = process.env.PORT_NO || 3000;
