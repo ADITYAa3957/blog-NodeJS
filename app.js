@@ -19,6 +19,10 @@ app.use(express.static("public")); //setting the folder for the static files
 app.use(express.urlencoded()); //for form
 app.use(cookieParser()); //for ease in setting the cookies
 app.use(methodOverride("_method")); //for using delete and others in form
-
 app.use(normalRoutes);
 app.use(adminRoutes);
+app.use((req,res)=> //error404 page
+{
+  res.render("error404");
+});
+

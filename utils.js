@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 const jwt_secretKey =process.env.JWT_SECRET;
-
 const max = (a, b) => {
   if (b === undefined) return a;
   else return Math.max(a, Number(b));
@@ -21,7 +21,7 @@ const auth = (
   }
 };
 const getToken = (id) => {
-  return jwt.sign({ id }, jwt_secretKey);
+  return jwt.sign({ id },jwt_secretKey);
 };
 const verifyToken = (token) => {
   return jwt.verify(token, jwt_secretKey);
