@@ -1,6 +1,7 @@
 const { max, auth, getToken, verifyToken } = require("../utils.js");
 const blogModel = require("../models/blog");
 const getHome = async (req, res) => {
+  try{
   const perPage = 4;
   //   console.log(req.query.page);
   let currPage = max(1, req.query.page);
@@ -26,14 +27,26 @@ const getHome = async (req, res) => {
   res.render("home", { blogs, morePages, currPage });
   //-1 for descending order
   //now we will get the documents and use the concept of pagination
-};
+  }
+  catch(err)
+  {
+    res.error(500).send("Error!");
+  }
+}
 const getBlog = async (req, res) => {
+  try{
   const id = req.params.id; //got the id then
   //display this blog
   let blog = await blogModel.findOne({ _id: id });
   res.render("blog", { blog });
+  }
+  catch(err)
+  {
+    res.error(500).send("Error!");
+  }
 };
 const getSearchResults = (req, res) => {
+  try{
   let searchWord = req.body.searchWord;
   //now search for the word
   blogModel
@@ -46,6 +59,11 @@ const getSearchResults = (req, res) => {
     .then((blogsArr) => {
       res.render("search", { blogs: blogsArr });
     });
+  }
+  catch(err)
+  {
+    res.error(500).send("Error!");
+  }
 };
 const getContact = (req, res) => {
   let admin = false;

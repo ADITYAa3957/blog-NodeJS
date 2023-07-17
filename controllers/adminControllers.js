@@ -3,14 +3,19 @@ const userModel = require("../models/user");
 const bcrypt = require("bcryptjs");
 require("dotenv").config();
 const { max, auth, getToken, verifyToken } = require("../utils.js");
-const getLoginAdmin = async (req, res) => {
+const getLoginAdmin =(req, res) => {
   //will get the admin page where we login and get the admin privileages
-  let errors = { username: "", password: "" };
-  res.render("admin", errors);
-};
+  
+    let errors = { username: "", password: "" };
+    res.render("admin", errors);
+ 
+    res.error(500).send("Error!");
+ 
+}
 const loginAdmin = (req, res) => {
   // console.log(req.body);
   //got the username and password
+  try{
   let errors = { username: "", password: "" };
   //will check in the database the password and the username and give access
   userModel.findOne({ username: req.body.username }).then((user) => {
@@ -36,27 +41,39 @@ const loginAdmin = (req, res) => {
       });
     }
   });
-};
+  }
+  catch(err)
+  {
+    res.error(500).send("Error!");
+  }
+}
 const adminLogout = (req, res) => {
   // res.cookie("jwt",, { maxAge: 1 }); //delete the cookie/jwt
   res.clearCookie("jwt");
   res.redirect("/"); //get to home
-};
+}
 const getDashboard = (req, res) => {
   //will get all the blogs and display along with buttons to edit and delete
+  try{
   blogModel
     .find()
     .sort({ updatedAt: -1 })
     .then((blogs) => {
       res.render("dashboard", { blogs });
     });
-};
+  }
+  catch(err)
+  {
+    res.error(500).send("Error!");
+  }
+}
 const getAddAdmin = (req, res) => {
   let errors = { username: "", password: "", success: "" };
   res.render("register", errors);
-};
+}
 const addAdmin = (req, res) => {
   // console.log(req.body);
+  try{
   //check if this username is already taken if not then register
   let errors = { username: "", password: "", success: "" };
   userModel
@@ -77,7 +94,12 @@ const addAdmin = (req, res) => {
       errors.success = "User is added!";
       res.render("register", errors);
     });
-};
+  }
+  catch(err)
+  {
+    res.error(500).send("Error!");
+  }
+}
 const deleteBlog = (req, res) => {
   // console.log(req.body);
   // console.log("here");
@@ -86,14 +108,20 @@ const deleteBlog = (req, res) => {
   //insted of using js and fetch we can use form for the delete,put etc requests
   const id = req.params.id;
   // console.log(id);
-
+  try{
   //will remove this blog simply and redirect to the dashboard again
   blogModel.findOneAndDelete({ _id: id }).then(() => {
     //deleted then
     res.redirect("/dashboard");
   });
-};
+  }
+  catch(err)
+  {
+    res.error(500).send("Error!");
+  }
+}
 const getEditBlog = (req, res) => {
+  try{
   const id = req.params.id;
   // console.log(id);
   //getting the edit request then rendering the edit page that sends a patch request later
@@ -101,11 +129,17 @@ const getEditBlog = (req, res) => {
     // console.log(blog);
     res.render("edit", { blog });
   });
-};
+  }
+  catch(err)
+  {
+    res.error(500).send("Error!");
+  }
+}
 
 const editBlog = (req, res) => {
   // console.log(req.body);
   // got the patch request here
+  try{
   const id = req.params.id;
   blogModel
     .findOneAndUpdate(
@@ -116,18 +150,29 @@ const editBlog = (req, res) => {
     .then((obj) => {
       res.redirect("/dashboard");
     });
-};
+  }
+  catch(err)
+  {
+    res.error(500).send("Error!");
+  }
+}
 const getAddBlog = (req, res) => {
   res.render("add");
 };
 const addBlog = (req, res) => {
   // console.log(req.body);
+  try{
   blogModel
     .create({ title: req.body.title, body: req.body.body })
     .then((obj) => {
       res.redirect("/dashboard");
     });
-};
+  }
+  catch(err)
+  {
+    res.error(500).send("Error!");
+  }
+}
 module.exports = {
   getLoginAdmin,
   loginAdmin,
